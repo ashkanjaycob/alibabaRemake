@@ -104,9 +104,10 @@ export default {
     font-family: alibaba, Arial, Helvetica, sans-serif !important;
 }
 
+
 ul .nav-item {
     border-left: 0.8px solid rgb(175, 172, 172);
-    padding: 4px 16px;
+    padding: 0px 16px;
     transition: 0.4s;
 }
 span .nav-link {

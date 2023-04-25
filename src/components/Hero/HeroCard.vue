@@ -1,5 +1,4 @@
 <template>
-
     <!-- <div>
 
         <select v-model="flightType">
@@ -15,13 +14,38 @@
           <p>{{ canBook ? '' : 'Return date must be after departure date.' }}</p>
 
     </div> -->
-
-
-    <div class="container m-5 alibaba " dir="rtl">
+    <div>
+        <img class="w-100" src="../../assets/Heros/hero-Indise-Airplane.webp" alt="">
+    </div>
+    <div class="container  m-5 alibaba rounded " dir="rtl">
+        <div>
+            <div class="row d-flex justify-content-center border text-center mb-3 bg-light rounded p-3">
+                <div class="col-2 TicketHov">
+                    <i class="bi bi-airplane-engines col-3 fs-3"></i>
+                    <h5>پرواز</h5>
+                </div>
+                <div class="col-2 TicketHov">
+                    <i class="bi bi-train-front col-3 fs-3"></i>
+                    <h5>قطار</h5>
+                </div>
+                <div class="col-2 TicketHov">
+                    <i class="bi bi-bus-front col-3 fs-3"></i>
+                    <h5>اتوبوس</h5>
+                </div>
+                <div class="col-2 TicketHov">
+                    <i class="bi bi-building col-3 fs-3"></i>
+                    <h5>هتل</h5>
+                </div>
+                <div class="col-2 TicketHov">
+                    <i class="bi bi-geo-fill col-3 fs-3"></i>
+                    <h5>تور</h5>
+                </div>
+            </div>
+        </div>
         <select v-model="flightType" class="border text-center rounded">
             <option value="one-way flight">یک طرفه</option>
             <option value="return flight">رفت و برگشت</option>
-          </select>
+        </select>
         <form class="row g-2 p-3  border text-center rounded">
             <div class="col-md-5">
                 <div class="input-group mb-3">
@@ -35,10 +59,11 @@
             <div class="col-md-4">
                 <div class="input-group mb-3">
                     <div class="input-group">
-                        <date-picker locale="fa,en"  placeholder="تاریخ رفت" aria-label="First name" class="form-control datestyle rounded" v-model="departureDate"></date-picker>
+                        <date-picker color="rgb(218,165,32)" locale="fa,en" placeholder="تاریخ رفت" aria-label="First name"
+                            class="form-control datestyle rounded" v-model="departureDate"></date-picker>
                         <!-- <input type="date" placeholder="تاریخ رفت" aria-label="First name" class="form-control p-2 rounded" v-model="departureDate"> -->
-                        <date-picker  locale="fa,en" type="date" placeholder="تاریخ برگشت " aria-label="Last name"
-                        class="form-control datestyle rounded" v-model="returnDate" :disabled="!isReturn"></date-picker>
+                        <date-picker color="rgb(218,165,32)" locale="fa,en" type="date" placeholder="تاریخ برگشت " aria-label="Last name"
+                            class="form-control datestyle rounded" v-model="returnDate" :disabled="!isReturn"></date-picker>
                         <!-- <input type="date" placeholder="تاریخ برگشت +" aria-label="Last name"
                         class="form-control p-2 rounded" v-model="returnDate" :disabled="!isReturn"> -->
                     </div>
@@ -49,24 +74,23 @@
             </div>
             <div class="col-md-1">
                 <!-- <button class="btn btn-primary" type="submit">جست و جو</button> -->
-                <button  class="btn btn-gold" :disabled="!canBook" @click="book">ثبت بلیط</button>
+                <button class="btn btn-gold" :disabled="!canBook" @click="book">ثبت بلیط</button>
             </div>
             <p>{{ canBook ? '' : 'توجه : تاریخ برگشت باید بعد از تاریخ رفت ثبت گردد.' }}</p>
         </form>
-        
     </div>
 </template>
 <script>
 import DatePicker from 'vue3-persian-datetime-picker'
-import {ref} from 'vue'
+import { ref } from 'vue'
 export default {
-    components:{
+    components: {
         DatePicker
-    } ,
+    },
     name: 'HeroCard',
     setup() {
 
-    } , 
+    },
 }
 </script>
 <script setup>
@@ -77,20 +101,20 @@ const returnDate = ref("")
 
 const isReturn = computed(() => flightType.value === 'return flight')
 
-const canBook = computed (
-  () => 
-    !isReturn.value ||
-    returnDate.value  > departureDate.value
+const canBook = computed(
+    () =>
+        !isReturn.value ||
+        returnDate.value > departureDate.value
 )
 
 function book() {
-  alert(
-    isReturn.value
-      ? `بلیط رفت شما در تاریخ  ${departureDate.value} و بلیط برگشت شما در تاریخ  ${returnDate.value} با موفقیت ثبت شد .`
-      : `بلیط شما در تاریخ  ${departureDate.value} با موفقیت ثبت شد.`
-  )
+    alert(
+        isReturn.value
+            ? `بلیط رفت شما در تاریخ  ${departureDate.value} و بلیط برگشت شما در تاریخ  ${returnDate.value} با موفقیت ثبت شد .`
+            : `بلیط شما در تاریخ  ${departureDate.value} با موفقیت ثبت شد.`
+    )
 }
-    console.log(DatePicker.format);
+console.log(DatePicker.format);
 
 // function stringToDate(str) {
 //   const [y, m, d] = str.split('-')
@@ -127,20 +151,28 @@ function book() {
 * {
     box-sizing: border-box;
 }
+
 .btn-gold {
     background-color: goldenrod;
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .datestyle {
     outline: none;
     border: none;
 }
-
-
+    
+.TicketHov:hover {
+    color: rgb(204, 155, 30);
+    cursor: pointer;
+}
+.btn-gold:hover{
+    background-color:rgb(255, 183, 0) ;
+    color: white;
+}
 </style>

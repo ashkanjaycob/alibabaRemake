@@ -6,6 +6,8 @@ import '../node_modules/bootstrap-icons/font/bootstrap-icons.css'
 import router from './router.js'
 import '../node_modules/dayjs/locale/fa'
 import '../node_modules/vue3-persian-datetime-picker/dist/vue3-persian-datetime-picker.common'
+import '../node_modules/vue-custom-scrollbar/src/main.js'
+import '../node_modules/vue-custom-scrollbar/dist/vueScrollbar.common'
 
 
 const app = createApp(App)

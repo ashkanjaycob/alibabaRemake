@@ -17,4 +17,11 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.scroll-area {
+  position: relative;
+  margin: auto;
+  width: 400px;
+  height: 400px;
+}
+</style>
