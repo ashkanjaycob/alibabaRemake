@@ -5,7 +5,7 @@
         <select v-model="flightType">
             <option value="one-way flight">One-way Flight</option>
             <option value="return flight">Return Flight</option>
-          </select>
+        </select>
         
           <input type="date" v-model="departureDate">
           <input type="date" v-model="returnDate" :disabled="!isReturn">
@@ -32,62 +32,55 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="input-group mb-3">
                     <div class="input-group">
-                        <input type="date" placeholder="تاریخ رفت" aria-label="First name" class="form-control p-2 rounded" v-model="departureDate">
-                        <date-picker v-model="date" />
-                        <input type="date" placeholder="تاریخ برگشت +" aria-label="Last name"
-                        class="form-control p-2 rounded" v-model="returnDate" :disabled="!isReturn">
+                        <date-picker locale="fa,en"  placeholder="تاریخ رفت" aria-label="First name" class="form-control datestyle rounded" v-model="departureDate"></date-picker>
+                        <!-- <input type="date" placeholder="تاریخ رفت" aria-label="First name" class="form-control p-2 rounded" v-model="departureDate"> -->
+                        <date-picker  locale="fa,en" type="date" placeholder="تاریخ برگشت " aria-label="Last name"
+                        class="form-control datestyle rounded" v-model="returnDate" :disabled="!isReturn"></date-picker>
+                        <!-- <input type="date" placeholder="تاریخ برگشت +" aria-label="Last name"
+                        class="form-control p-2 rounded" v-model="returnDate" :disabled="!isReturn"> -->
                     </div>
                 </div>
             </div>
             <div class="col-md-2">
                 <input type="number" class="form-control" id="exampleFormControlInput1" placeholder=" تعداد مسافران (عدد) ">
             </div>
-            <div class="col-md-2">
+            <div class="col-md-1">
                 <!-- <button class="btn btn-primary" type="submit">جست و جو</button> -->
                 <button  class="btn btn-gold" :disabled="!canBook" @click="book">ثبت بلیط</button>
             </div>
             <p>{{ canBook ? '' : 'توجه : تاریخ برگشت باید بعد از تاریخ رفت ثبت گردد.' }}</p>
         </form>
-
+        
     </div>
 </template>
 <script>
-// import axios from 'axios'
-import VuePersianDatetimePicker from 'vue-persian-datetime-picker'
+import DatePicker from 'vue3-persian-datetime-picker'
 import {ref} from 'vue'
-import dayjs from 'dayjs';
 export default {
     components:{
-        datePicker: VuePersianDatetimePicker
+        DatePicker
     } ,
     name: 'HeroCard',
     setup() {
 
-        var date = ref();
-        var day = ref(dayjs().format('{YYYY} MM-DDTHH:mm:ss SSS [Z] A') );
-
-        console.log(day.value);
-
-        return {day , date} ; 
-        
     } , 
 }
 </script>
 <script setup>
 import { computed } from 'vue'
 const flightType = ref('one-way flight')
-const departureDate = ref(dateToString(new Date()))
-const returnDate = ref(departureDate.value)
+const departureDate = ref('1402/02/05')
+const returnDate = ref("")
 
 const isReturn = computed(() => flightType.value === 'return flight')
 
-const canBook = computed(
-  () =>
+const canBook = computed (
+  () => 
     !isReturn.value ||
-    stringToDate(returnDate.value) > stringToDate(departureDate.value)
+    returnDate.value  > departureDate.value
 )
 
 function book() {
@@ -97,25 +90,26 @@ function book() {
       : `بلیط شما در تاریخ  ${departureDate.value} با موفقیت ثبت شد.`
   )
 }
+    console.log(DatePicker.format);
 
-function stringToDate(str) {
-  const [y, m, d] = str.split('-')
-  return new Date(+y, m - 1, +d)
-}
+// function stringToDate(str) {
+//   const [y, m, d] = str.split('-')
+//   return new Date(+y, m - 1, +d)
+// }
 
-function dateToString(date) {
-  return (
-    date.getFullYear() +
-    '-' +
-    pad(date.getMonth() + 1) +
-    '-' +
-    pad(date.getDate())
-  )
-}
+// function dateToString(date) {
+//   return (
+//     date.getFullYear() +
+//     '-' +
+//     pad(date.getMonth() + 1) +
+//     '-' +
+//     pad(date.getDate())
+//   )
+// }
 
-function pad(n, s = String(n)) {
-  return s.length < 2 ? `0${s}` : s
-}
+// function pad(n, s = String(n)) {
+//   return s.length < 2 ? `0${s}` : s
+// }
 
 
 </script>
@@ -141,6 +135,11 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.datestyle {
+    outline: none;
+    border: none;
 }
 
 
