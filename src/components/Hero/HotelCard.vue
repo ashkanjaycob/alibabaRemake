@@ -15,7 +15,7 @@
 
     </div> -->
     <div>
-        <img class="w-100" src="../../assets/Heros/hero-Indise-Airplane.webp" alt="">
+        <img class="w-100" src="../../assets/Heros/Hero-hotel.webp" alt="">
     </div>
     <div class=" d-flex justify-content-center m-5 alibaba rounded position-relative " dir="rtl">
         <div class="col-12 container position-absolute bottomed">
@@ -131,7 +131,7 @@ function book() {
             : `بلیط شما در تاریخ  ${departureDate.value} با موفقیت ثبت شد.`
     )
 }
-console.log(DatePicker);
+console.log(DatePicker.format);
 
 // function stringToDate(str) {
 //   const [y, m, d] = str.split('-')
@@ -163,10 +163,7 @@ console.log(DatePicker);
 .alibaba {
     font-family: alibaba, Arial, Helvetica, sans-serif !important;
 }
-.rotlink{
-    text-decoration: none;
-    color: rgb(41, 39, 39);
-}
+
 .bottomed {
     top: -90px;
 }
@@ -190,7 +187,7 @@ input::-webkit-inner-spin-button {
     border: none;
 }
 
-.rotlink:hover {
+.TicketHov:hover {
     color: rgb(204, 155, 30);
     cursor: pointer;
 }

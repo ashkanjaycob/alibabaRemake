@@ -1,7 +1,10 @@
 <template>
   <div>
     <NavBar></NavBar>
-    <router-view></router-view>
+
+    <router-view>
+
+    </router-view>
   </div>
 </template>
 
@@ -24,4 +27,5 @@ export default {
   width: 400px;
   height: 400px;
 }
+
 </style>
