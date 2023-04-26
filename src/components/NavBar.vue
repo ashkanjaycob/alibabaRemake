@@ -55,11 +55,11 @@
                         </li>
                     </ul>
 
-                    <div class="d-flex justify-content-end w-75">
+                    <div class="d-flex justify-content-end text-center w-100 ">
                         <span class="nav-item ">
                             <a class="nav-link " href="#" role="button" aria-expanded="false">
                                 <i class="bi bi-question-circle-fill fs-4"></i>
-                                مرکز پشتیبانی آنلاین
+                                مرکز پشتیبانی
                             </a>
                         </span>
                         <span class="nav-item ">

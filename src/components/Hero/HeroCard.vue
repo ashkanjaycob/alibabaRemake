@@ -1,24 +1,19 @@
 <template>
     <!-- <div>
-
         <select v-model="flightType">
             <option value="one-way flight">One-way Flight</option>
             <option value="return flight">Return Flight</option>
-        </select>
-        
+        </select>       
           <input type="date" v-model="departureDate">
-          <input type="date" v-model="returnDate" :disabled="!isReturn">
-        
-          <button :disabled="!canBook" @click="book">Book</button>
-        
+          <input type="date" v-model="returnDate" :disabled="!isReturn">        
+          <button :disabled="!canBook" @click="book">Book</button>       
           <p>{{ canBook ? '' : 'Return date must be after departure date.' }}</p>
-
     </div> -->
     <div>
         <img class="w-100" src="../../assets/Heros/hero-Indise-Airplane.webp" alt="">
     </div>
-    <div class=" d-flex justify-content-center m-5 alibaba rounded position-relative " dir="rtl">
-        <div class="col-12 container position-absolute bottomed">
+    <div class="d-flex justify-content-center m-5 alibaba rounded position-relative " dir="rtl">
+        <div class="col-12 container position-absolute bottomed ">
             <div>
                 <div
                     class="row align-content-between d-flex justify-content-center border text-center mb-3 bg-light rounded p-1">
@@ -60,7 +55,7 @@
             </select>
             <form class="row g-2 p-3  border text-center rounded">
                 <div class="col-md-5">
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-3 position-relative\">
                         <div class="input-group">
                             <input id="cityName" type="text" placeholder="شهر مبدا را انتخاب کنید" aria-label="First name"
                                 class="form-control p-2 rounded">
@@ -96,13 +91,23 @@
             </form>
         </div>
     </div>
+    <span class="clearfix m-5"><br><br></span>
+    <div class="container text-end">
+        <IndexCard class="pt-5"></IndexCard>
+    </div>
+
+
+
+
 </template>
 <script>
 import DatePicker from 'vue3-persian-datetime-picker'
+import IndexCard from '../../components/IndexCard.vue'
 import { ref } from 'vue'
 export default {
     components: {
-        DatePicker
+        DatePicker ,
+        IndexCard
     },
     name: 'HeroCard',
     setup() {
