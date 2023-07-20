@@ -1,6 +1,6 @@
 # project
 
-![alibab1](https://github.com/ashkanjaycob/alibabaRemake/assets/111354885/7b1ccb22-5690-4f93-9858-33cf507cc4fb)
+![alibab1](https://github.com/ashkanjaycob/alibabaRemake/assets/111354885/f58cb290-e815-4108-bcf7-87e6b70e7703)
 
 
 ## Project setup
